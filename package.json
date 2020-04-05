@@ -1,0 +1,49 @@
+{
+	"name": "clipfs",
+	"version": "0.1.0",
+	"description": "A clipboard module for interacting with the file system.",
+	"repository": "https://github.com/lxghtless/clipfs.git",
+	"author": "lxghtless",
+	"license": "ISC",
+	"main": "dist/src/index.js",
+	"bin": {
+		"clipfs": "dist/cli.js"
+	},
+	"files": [
+		"dist",
+		"src",
+		"cli.ts"
+	],
+	"scripts": {
+		"cli": "cross-env CLIPFS_LOG_LEVEL=debug CLIPFS_LOG_COLORS=true ts-node cli.ts",
+		"lint": "tsc -p tsconfig.json --noEmit && eslint cli.ts src/**/*.ts --fix",
+		"build": "yarn clean && tsc -p tsconfig.build.json",
+		"clean": "rimraf dist"
+	},
+	"dependencies": {
+		"cfonts": "^2.8.1",
+		"clipboardy": "^2.3.0",
+		"fluture": "^12.2.0",
+		"fs-extra": "^9.0.0",
+		"get-stdin": "^7.0.0",
+		"mode-mask": "^2.0.3",
+		"yargs": "^15.3.1"
+	},
+	"devDependencies": {
+		"@types/fs-extra": "^8.1.0",
+		"@types/node": "^13.11.0",
+		"@types/yargs": "^15.0.4",
+		"@typescript-eslint/eslint-plugin": "^2.26.0",
+		"@typescript-eslint/parser": "^2.26.0",
+		"cross-env": "^7.0.2",
+		"eslint": "^6.8.0",
+		"eslint-config-prettier": "^6.10.1",
+		"eslint-config-xo": "^0.29.1",
+		"eslint-config-xo-typescript": "^0.27.0",
+		"eslint-plugin-prettier": "^3.1.2",
+		"prettier": "^2.0.2",
+		"rimraf": "^3.0.2",
+		"ts-node": "^8.8.1",
+		"typescript": "^3.8.3"
+	}
+}
