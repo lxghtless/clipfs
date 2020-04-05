@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 'use strict'
 
+import {isPiped, run} from './src'
 import cfonts from 'cfonts'
 import {argv} from 'yargs'
-import {run, isPiped} from './src'
 
-const showHelp = () => {
+const showHelp = (): void => {
     console.log('    ')
     cfonts.say('clipfs', {
         font: 'chrome',
@@ -34,7 +34,7 @@ const showHelp = () => {
     console.log(`\n\x1b[2m${helpMenuItems.join('\n\n')}\n\x1b[0m`)
 }
 
-if (argv.help || argv.h) {
+if (process.argv[2] === '--help' || argv.h) {
     showHelp()
 } else {
     const show = (argv.show ?? argv.s) as boolean
