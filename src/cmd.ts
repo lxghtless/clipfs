@@ -37,30 +37,44 @@ export const run = async (args: Args, doNotExit?: boolean): Promise<void> => {
         validateArgNotArray(input, 'input')
         validateArgNotArray(output, 'output')
 
+        const queryStore = buildQueryStore()
+        const mask = resolveMask()
+
         const params: number[] = []
 
-        if (show) {
-            params.push(s)
+        if (isPiped()) {
+            params.push(ir)
+            params.push(cw)
+        } else if (input) {
+            params.push(fr)
+            params.push(cw)
         }
 
         if (output) {
             params.push(fw)
         }
 
-        if (isPiped()) {
-            params.push(cw)
-            params.push(ir)
-        } else {
-            if (input) {
-                params.push(cw)
-                params.push(fr)
-            } else if (show) {
-                params.push(cr)
+        if (params.length !== 0) {
+            const cmask = mask.indexOf(sumUp(params))
+            if (cmask) {
+                if (!cmask.nums.includes(cw)) {
+                    params.push(cr)
+                }
             }
         }
 
-        if (params.length === 0) {
+        if (!show && params.length === 0) {
             throwInvalidArgumentsError(args)
+        }
+
+        if (show) {
+            params.push(s)
+            const cmask = mask.indexOf(sumUp(params))
+            if (cmask) {
+                if (!cmask.nums.includes(cw) && !cmask.nums.includes(cr)) {
+                    params.push(cr)
+                }
+            }
         }
 
         const query = sumUp(params)
@@ -68,9 +82,6 @@ export const run = async (args: Args, doNotExit?: boolean): Promise<void> => {
         if (isNaN(query)) {
             throwCorruptArgumentError(args, query, params)
         }
-
-        const queryStore = buildQueryStore()
-        const mask = resolveMask()
 
         log.trace(`running ${query}`, JSON.stringify(args))
 
