@@ -16,8 +16,8 @@
 	],
 	"scripts": {
 		"cli": "cross-env CLIPFS_LOG_LEVEL=debug CLIPFS_LOG_COLORS=true ts-node cli.ts",
-		"lint": "tsc -p tsconfig.json --noEmit && eslint cli.ts src/**/*.ts --fix",
-		"build": "yarn clean && tsc -p tsconfig.build.json",
+		"lint": "tsc --noEmit && eslint cli.ts src/**/*.ts --fix",
+		"build": "yarn clean && tsc",
 		"clean": "rimraf dist"
 	},
 	"dependencies": {
