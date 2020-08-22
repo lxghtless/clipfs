@@ -934,10 +934,10 @@ mkdirp@^0.5.1:
   dependencies:
     minimist "^1.2.5"
 
-mode-mask@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/mode-mask/-/mode-mask-2.0.3.tgz#16b621c7dc1e4f410f532a5597a28de33ae7a524"
-  integrity sha512-deTYZTCVqQmZfFHCZkAXA6PdlUQlmoDxuVgVgJ1KHt301pa6e1/o7AKc32P3etUMw6Xip4xp+Ctd0B5pObptNw==
+mode-mask@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/mode-mask/-/mode-mask-2.1.1.tgz#bd76890b2334777bdcbea5876b1536a006d0159a"
+  integrity sha512-DBQW7qsxdyxhWetlG/ZRZyTff/QyXOnIqJN9I+goikUBZOPLcstLsCAYCN7Wa3iNU+Qh1w0O5qW403mjwEnTsw==
 
 ms@^2.1.1:
   version "2.1.2"
