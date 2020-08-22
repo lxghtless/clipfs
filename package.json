@@ -1,6 +1,6 @@
 {
 	"name": "clipfs",
-	"version": "0.2.2",
+	"version": "0.2.3",
 	"description": "A clipboard module for interacting with the file system.",
 	"repository": "https://github.com/lxghtless/clipfs.git",
 	"author": "lxghtless",
